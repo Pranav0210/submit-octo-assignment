@@ -5,22 +5,37 @@ import {
   HelpCircle,
   Folder,
   SquareCheck,
-  Users,
   Sparkles,
+  Soup,
+  MessageCircleMore,
+  Receipt,
 } from "lucide-react";
-import { InvertedHoverButton } from "./InvertedHoverButton";
 
 const Sidebar = () => {
   const menuItems = [
-    { name: "Dashboard", icon: <LayoutDashboard name="dashboard" /> },
-    { name: "Projects", icon: <Folder name="folder" /> },
-    { name: "Tasks", icon: <SquareCheck name="check-square" /> },
-    { name: "Teams", icon: <Users name="users" /> },
+    {
+      name: "Dashboard",
+      icon: <LayoutDashboard className="h-5 w-5 stroke-[1.5px]" />,
+    },
+    {
+      name: "My Task",
+      icon: <SquareCheck className="h-5 w-5 stroke-[1.5px]" />,
+    },
+    { name: "Meal Planner", icon: <Soup className="h-5 w-5 stroke-[1.5px]" /> },
+    { name: "Documents", icon: <Folder className="h-5 w-5 stroke-[1.5px]" /> },
+    { name: "Receipt", icon: <Receipt className="h-5 w-5 stroke-[1.5px]" /> },
+    {
+      name: "Chats",
+      icon: <MessageCircleMore className="h-5 w-5 stroke-[1.5px]" />,
+    },
   ];
 
   const footerItems = [
-    { name: "Settings", icon: <Settings /> },
-    { name: "Help & Support", icon: <HelpCircle /> },
+    { name: "Settings", icon: <Settings className="h-5 w-5 stroke-[1.5px]" /> },
+    {
+      name: "Help & Support",
+      icon: <HelpCircle className="h-5 w-5 stroke-[1.5px]" />,
+    },
   ];
 
   return (
@@ -31,22 +46,21 @@ const Sidebar = () => {
       transition={{ type: "spring", stiffness: 100 }}
     >
       <div>
-        {/* Product Name */}
-        <h1 className="text-3xl text-left font-bold px-10 font-serif">
+        <h1 className="text-3xl text-left font-bold px-8 font-serif">
           Sundays.
         </h1>
-
-        {/* Menu */}
         <nav className="mt-8 px-4">
           <ul className="space-y-2">
             {menuItems.map((item, index) => (
               <motion.li
                 key={index}
-                className="flex items-center px-6 py-2 rounded-lg hover:bg-gradient-to-r hover:from-pink-200/[0.5] hover:to-violet-300/[0.5] cursor-pointer"
+                className="flex items-center px-2 mx-2 text-gray-800 py-2 rounded-lg hover:bg-gradient-to-r hover:from-pink-200/[0.5] hover:to-violet-300/[0.5] cursor-pointer"
                 whileHover={{ scale: 1.05 }}
               >
                 <span className="mr-4">{item.icon}</span>
-                <span>{item.name}</span>
+                <span className="text-sm font-medium font-poppins">
+                  {item.name}
+                </span>
               </motion.li>
             ))}
           </ul>
@@ -54,10 +68,7 @@ const Sidebar = () => {
       </div>
 
       <div className="px-6">
-        <div
-          className="bg-gradient-to-b from-pink-200/[0.5] to-violet-300/[0.5] p-4 rounded-xl mb-4 flex flex-col items-center justify-center"
-          //   whileHover={{ scale: 1.02 }}
-        >
+        <div className="bg-gradient-to-b from-pink-200/[0.5] to-violet-300/[0.5] p-4 rounded-xl mb-4 flex flex-col items-center justify-center">
           <p className="text-xl w-full font-semibold text-left font-serif">
             Upgrade <br />
             your plan
@@ -82,17 +93,18 @@ const Sidebar = () => {
           </motion.button>
         </div>
 
-        {/* Footer */}
-        <nav>
+        <nav className="border-t-[3px] pt-2 border-gray-200">
           <ul className="space-y-2">
             {footerItems.map((item, index) => (
               <motion.li
                 key={index}
-                className="flex items-center px-6 py-2 rounded-lg hover:bg-gradient-to-r hover:from-pink-200/[0.5] hover:to-violet-300/[0.5] cursor-pointer"
+                className="flex items-center px-2 py-2 rounded-lg text-gray-800 hover:bg-gradient-to-r hover:from-pink-200/[0.5] hover:to-violet-300/[0.5] cursor-pointer"
                 whileHover={{ scale: 1.05 }}
               >
                 <span className="mr-4">{item.icon}</span>
-                <span>{item.name}</span>
+                <span className="text-sm font-medium font-poppins">
+                  {item.name}
+                </span>
               </motion.li>
             ))}
           </ul>

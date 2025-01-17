@@ -48,7 +48,7 @@ export const HoverEffect = ({
                       "border-indigo-500/[0.7]": idx == 6,
                       "border-yellow-500/[0.7]": idx == 7,
                     },
-                    "absolute inset-0 h-full w-full border-2 dark:bg-primaryIndigo/[0.8] block rounded-2xl",
+                    "absolute inset-0 h-full w-full border-2 block rounded-2xl",
                   )}
                   layoutId="hoverBackground"
                   initial={{ opacity: 0 }}
