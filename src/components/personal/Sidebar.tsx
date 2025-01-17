@@ -61,6 +61,11 @@ const Sidebar = () => {
                 <span className="text-sm font-medium font-poppins">
                   {item.name}
                 </span>
+                {item.name === "Chats" && (
+                  <span className="ml-auto font-medium font-poppins rounded-full px-2 bg-gradient-to-r from-pink-200/[0.5] to-violet-300/[0.5]">
+                    3
+                  </span>
+                )}
               </motion.li>
             ))}
           </ul>
@@ -77,6 +82,14 @@ const Sidebar = () => {
             Your trial plan ends in 12 days. Upgrade your plan and unlock full
             potential.
           </p>
+          <div className="w-full pb-4">
+            <div className="h-[5px] bg-white rounded-full overflow-hidden">
+              <div
+                className="h-full bg-black rounded-full"
+                style={{ width: `36%` }}
+              ></div>
+            </div>
+          </div>
           <motion.button
             className="bg-black text-sm text-white mx-2 py-2 w-[150px] px-4 rounded-full hover:bg-gray-700 border-none flex justify-center"
             whileHover={{ width: "180px" }}

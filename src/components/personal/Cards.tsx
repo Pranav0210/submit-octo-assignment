@@ -19,7 +19,7 @@ export const HoverEffect = ({
   const gridRef = useRef();
 
   return (
-    <div className={cn(" bg-white py-10 px-8 rounded-3xl", className)}>
+    <div className={cn(" bg-white py-6 px-6 rounded-3xl", className)}>
       <span className="mb-6 ml-1 flex text-left text-xl font-medium font-poppins">
         Recommended Categories
       </span>
