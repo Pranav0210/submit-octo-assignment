@@ -1,44 +1,54 @@
 import { motion } from "framer-motion";
-import { Clock, Ellipsis } from "lucide-react";
+import { Clock, Ellipsis, MessageCircle, Paperclip } from "lucide-react";
 
-const TodoSection = () => {
-  const todos = [
-    {
-      title: "Complete project report",
-      category: "Work",
-      tags: ["Urgent", "High Priority"],
-      daysLeft: 2,
-      progress: 75,
-    },
-    {
-      title: "Buy groceries",
-      category: "Personal",
-      tags: ["Routine"],
-      daysLeft: 5,
-      progress: 30,
-    },
-  ];
+interface TodoSectionProps {
+  sectionTitle: string;
+  items: {
+    title: string;
+    category: string;
+    tags: string[];
+    daysLeft: number;
+    progress: number;
+  }[];
+}
 
+const TodoSection = ({ sectionTitle = "TODO", items }: TodoSectionProps) => {
   return (
     <section className="mt-6">
-      <h3 className="text-md font-semibold mb-4 text-gray-400 text-left font-poppins">
-        TODO
+      <h3 className="text-xs flex flex-grow font-semibold mb-4 uppercase text-gray-400 text-left font-poppins">
+        {sectionTitle}
+        <div className="ml-auto border-2 border-transparent rounded-md hover:border-[#c2c2c2]">
+          <Ellipsis
+            name="more-horizontal"
+            className="text-gray-500 w-6 h-6 hover:cursor-pointer"
+          />
+        </div>
       </h3>
       <div className="space-y-4">
-        {todos.map((todo, index) => (
+        {items.map((todo, index) => (
           <motion.div
             key={index}
             className="flex items-center p-4 bg-white rounded-lg shadow-md hover:shadow-xl"
             whileHover={{ scale: 1.05, rotateX: 10 }}
           >
             <div className="flex-1">
-              <h4 className="text-lg font-semibold truncate w-5/12 text-left">
+              <h4 className="text-lg font-semibold capitalize truncate w-5/12 text-left">
                 {todo.title}
               </h4>
               <p className="text-sm text-gray-500 text-left">{todo.category}</p>
             </div>
 
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2 mr-2">
+              <span className="text-xs flex gap-1 border-2 border-[#C2C2C2/0.4] text-black font-medium py-1 px-3 rounded-md  ">
+                <Paperclip className="h-4 w-4" />
+                <span>{Math.floor(Math.random() * 15) + 1}</span>
+              </span>
+              <span className="text-xs flex gap-1 border-2 border-[#C2C2C2/0.4] text-black font-medium py-1 px-3 rounded-md  ">
+                <MessageCircle className="h-4 w-4" />
+                <span>{Math.floor(Math.random() * 15) + 1}</span>
+              </span>
+            </div>
+            <div className="flex items-center space-x-2">
               {todo.tags.map((tag, tagIndex) => (
                 <span
                   key={tagIndex}

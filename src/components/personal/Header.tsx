@@ -22,9 +22,6 @@ const Header = () => {
 
         <div className="relative">
           <Bell className="text-gray-500 w-6 h-6" />
-          {/* <span className="absolute top-0 right-0 block w-2 h-2 bg-gray-500 rounded-full animate-ping">
-            <span className="absolute top-[0.5] right-[0.5] block w-1 h-1 bg-black rounded-full" />
-          </span> */}
           <span className="absolute top-0 right-0">
             <span className="relative top-0 right-0 rounded-full inset-0 h-3 w-3 bg-gray-500 block animate-ping">
               <span className="absolute rounded-full inset-0 h-1.5 w-1.5 bg-black m-auto  text-white items-center justify-center flex"></span>
@@ -33,7 +30,7 @@ const Header = () => {
         </div>
 
         <img
-          src="src\assets\fc39d4d5-be33-4d6d-b1b7-741c14901893.jpg"
+          src="/fc39d4d5-be33-4d6d-b1b7-741c14901893.jpg"
           alt="Profile"
           className="w-10 h-10 rounded-full object-cover"
         />
